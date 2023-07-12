@@ -1,10 +1,11 @@
 package com.lucasbandeira.dslist.dto;
 
 import com.lucasbandeira.dslist.entities.Game;
+import com.lucasbandeira.dslist.projections.GameMinProjection;
 
 public class GameMinDto {
 
-    private long id;
+    private Long id;
     private String title;
     private Integer year;
     private String imgUrl;
@@ -20,8 +21,15 @@ public class GameMinDto {
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
     }
+    public GameMinDto(GameMinProjection projection ) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
+    }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
