@@ -23,7 +23,7 @@ public class GameService {
         GameDto dto = new GameDto(result);
         return dto;
     }
-
+    @Transactional(readOnly = true)
     public List<GameMinDto> findAll() {
         var result = gameRepository.findAll();
         return result.stream().map(x -> new GameMinDto(x)).toList();
